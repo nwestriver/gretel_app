@@ -3,19 +3,19 @@ crumb :root do
 end
 
 # ユーザー登録ページのパンくずリストの指定
-crum :user_new do
+crumb:user_new do
   link "新規ユーザー作成", new_user_path
   parent :root
 end
 
 # ユーザー詳細ページのパンくずリストの指定(pathに:idを含める必要がある)
-crum :user_show do |user|
+crumb :user_show do |user|
   link "#{user.name}さんの詳細", user_path(user)
   parent :root
 end
 
 # ユーザー編集画面のパンくずリストの指定
-crum :user_edit do |user|
+crumb :user_edit do |user|
   link "ユーザー編集"
   parent :user_show, user # 親へのリンクにuserを渡してあげる必要がある。
 end
