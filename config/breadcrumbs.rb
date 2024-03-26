@@ -1,7 +1,18 @@
 crumb :root do
-  link "Home", root_path
+  link "ホーム", root_path
 end
 
+# ユーザー登録ページのパンくずリストの指定
+crum :user_new do
+  link "新規ユーザー作成", new_user_path
+  parent :root
+end
+
+# ユーザー詳細ページのパンくずリストの指定(pathに:idを含める必要がある)
+crum :user_show do |user|
+  link "#{user.name}さんの詳細", user_path(user)
+  parent :root
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
