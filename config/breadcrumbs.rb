@@ -13,6 +13,12 @@ crum :user_show do |user|
   link "#{user.name}さんの詳細", user_path(user)
   parent :root
 end
+
+# ユーザー編集画面のパンくずリストの指定
+crum :user_edit do |user|
+  link "ユーザー編集"
+  parent :user_show, user # 親へのリンクにuserを渡してあげる必要がある。
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
